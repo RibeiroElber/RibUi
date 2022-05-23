@@ -37,8 +37,8 @@
         <h1>Controles da interface Rib.UI</h1>
         
         <p>Esta página tem como objetivo demonstrar rapidamente os controles e estilos da Interface.</p>
-	    <p><strong>GitHub Repository: <a href="https://github.com/RibeiroElber/RibUi">Rib.UI</a></strong></p>
-
+	<p><strong>GitHub Repository: <a href="https://github.com/RibeiroElber/RibUi">Rib.UI</a></strong></p>
+	    
         <h1>Conceitos básicos e estilos</h1>
 
         <div class="bloco" id="estrMinima">
@@ -80,16 +80,16 @@
                 </p>
                 <p><strong>EXEMPLOS:</strong></p>
                     <pre><code class="language-markup">
-    <b>&lt;div class="button"</b> onclick="yesSir();"&gt;Ok&lt;/div&gt;
-    <b>&lt;a class="button"</b> href="#" onclick="yesSir();"&gt;Ok&lt;/a&gt;
-    <b>&lt;span class="button"</b> onclick="yesSir();"&gt;Ok&lt;/span&gt;
+    <b>&lt;div class="button primary"</b> onclick="yesSir();"&gt;Ok&lt;/div&gt;
+    <b>&lt;a class="button alert"</b> href="#" onclick="yesSir();"&gt;Ok&lt;/a&gt;
+    <b>&lt;span class="button warning"</b> onclick="yesSir();"&gt;Ok&lt;/span&gt;
     <b>&lt;button</b> type="button" onclick="yesSir();"&gt;Ok&lt;/button&gt;
     <b>&lt;input</b> type="button" onclick="yesSir();"&gt;Ok&lt;/input&gt;
                     </code></pre>
                 <div style="text-align:center;">
-                    <div class="button" onclick="yesSir();">Botão &lt;div&gt;</div>
-                    <a class="button" onclick="yesSir();">Botão &lt;a&gt;</a>
-                    <span class="button" onclick="yesSir();">Botão &lt;span&gt;</span>
+                    <div class="button primary" onclick="yesSir();">Botão &lt;div&gt;</div>
+                    <a class="button alert" onclick="yesSir();">Botão &lt;a&gt;</a>
+                    <span class="button warning" onclick="yesSir();">Botão &lt;span&gt;</span>
                     <button type="button" onclick="yesSir();">Botão &lt;button&gt;</button>
                     <input type="button" onclick="yesSir();" value="Botão &lt;input&gt;" />
                 </div>
@@ -116,27 +116,27 @@
                 <pre><code class="language-markup">
     <i>&lt;!-- Estrutura mínima do bloco --&gt;</i>
     &lt;div <b>class="bloco"</b>&gt; 
-        &lt;div class="header g-arrow-dn"&gt;Bloco normal (cor cinza)&lt;/div&gt;  <i>&lt;!-- header do bloco é opcional e sub-classe 'g-arrow-dn' também--&gt;</i>
+        &lt;div class="header g-arrow-dn"&gt;Bloco normal&lt;/div&gt;  <i>&lt;!-- header do bloco é opcional e sub-classe 'g-arrow-dn' também--&gt;</i>
         <b>&lt;div class="conteudo"&gt;</b>
             Conteudo do bloco cinza
         &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="bloco <b>branco</b>"&gt; <i>&lt;!-- para o bloco basta adicionar a sub-classe "branco" à classe bloco --&gt;</i>
         &lt;div class="conteudo" style="text-align:center;" &gt;
-            &lt;p&gt;Conteudo do bloco&lt;/p&gt;
+            &lt;p&gt;Conteudo do bloco (cinza)&lt;/p&gt;
             &lt;input type="button" value="Ok" /&gt;
         &lt;/div&gt;
     &lt;/div&gt;
                 </code></pre>
                 <div class="bloco">
-                    <div class="header">Bloco normal (cor cinza)</div>
+                    <div class="header">Bloco normal</div>
                     <div class="conteudo">
-                        Conteudo do bloco cinza
+                        Conteudo do bloco
                     </div>
                 </div>
-                <div class="bloco">
+                <div class="bloco cinza">
                     <div class="conteudo" style="text-align:center;">
-                        <p>Conteudo do bloco</p>
+                        <p>Conteudo do bloco (cinza)</p>
                         <input type="button" value="Ok" />
                     </div>
                 </div>
@@ -151,9 +151,9 @@
                 <div class="bloco cinza" style="width:50%;margin:auto;">
                     <div class="header">Cliente : José Alves Farias Filho <span class="bubble">2 itens</span></div>
                     <div class="conteudo">
-                        <i>Contratos Ativos</i><span class="bubble">34</span><br />
-                        <i>Contratos em Atraso</i><span class="bubble">8</span><br />
-                        <i>Maior atraso</i><span class="bubble">167 dias</span>
+                        <i>class="bubble warning"</i><span class="bubble warning">34</span><br />
+                        <i>class="bubble primary"</i><span class="bubble primary">8</span><br />
+                        <i>class="bubble alert"</i><span class="bubble alert">167 dias</span>
                     </div>
                 </div>
             </div>
@@ -169,14 +169,14 @@
                 </pre>
                 <p><label><strong>EXEMPLO:</strong></label></p>
                 <pre><code class="language-markup">
-                    &lt;div class="button">&lt;span class="fas fa-save">&lt;/span> Salvar&lt;/div>
+                    &lt;div class="button primary">&lt;span class="fas fa-save">&lt;/span> Salvar&lt;/div>
                     &lt;div class="button">&lt;span class="fas fa-paperclip">&lt;/span> Anexar arquivo&lt;/div>
-                    &lt;div class="button">&lt;span class="fas fa-recycle">&lt;/span> Remover&lt;/div>
+                    &lt;div class="button warning">&lt;span class="fas fa-recycle">&lt;/span> Remover&lt;/div>
                     &lt;div class="button">&lt;span class="fas fa-undo-alt">&lt;/span> Voltar&lt;/div>
                     </code></pre>
-                <div class="button"><span class="fas fa-save"></span> Salvar</div>
+                <div class="button primary"><span class="fas fa-save"></span> Salvar</div>
                 <div class="button"><span class="fas fa-paperclip"></span> Anexar arquivo</div>
-                <div class="button"><span class="fas fa-recycle"></span> Remover</div>
+                <div class="button warning"><span class="fas fa-recycle"></span> Remover</div>
                 <div class="button"><span class="fas fa-undo-alt"></span> Voltar</div>
             </div>
         </div>
