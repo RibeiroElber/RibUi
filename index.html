@@ -288,10 +288,10 @@
                 <p>Parametros: <strong>id <i>(ID do objeto)</i></strong></p> <strong>params <i>(JSON object)</i></strong></p>
                 <pre><code class="language-javascript">
         {
-            title        : Titulo da pagina
-            user         : User name
-            confidential : true  (default) <i>//Mensagem 'Sistema contém informações confidênciais'</i>
-            logo         : false (default) <i>//Exibir ou não o logo com a estrela da Mercedes-Benz</i>
+            title        : string
+            user         : string <i>//User Name logged in</i>
+            subtitle     : string <i>//Subtitle</i>
+            logoURL      : string <i>//Company Logo URL</i>
         }</code></pre>
                 <p>Metodos: <strong>addMenuOption(opts)</strong> (opts = JSON object)<br/></p>
                 <p><strong>EXEMPLO</strong> (este exemplo está sendo usado no header desta pagina)</p>
@@ -319,7 +319,7 @@ $rib.ready(<b>function</b>()
             };
 
     <i>//Instancia o RibHeader e em seguida adiciona a lista de menus</i>
-    <b>$rib.header("header-rib",</b>{ title: 'Titulo da Aplicação', user : 'Nome do Usuário' }<b>).addMenuOption</b>(menu);
+    <b>$rib.header("header-rib",</b>{ title: 'Application Title', user : 'Ribeiro, Elber' }<b>).addMenuOption</b>(menu);
 }</code></pre>
             </div>
         </div>
