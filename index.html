@@ -1,0 +1,767 @@
+﻿<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8">
+	<title>2021 Skin - Wiki</title>
+    <script src="./script/rib-controls.js"></script>
+    <link id="pagestyle" href="./css/style.css" rel="stylesheet" />
+    <link href="http://localhost/biblioteca/fontawesome-5.15.3/css/all.css" rel="stylesheet">
+	<style type="text/css">
+	    p {line-height: 15px; }
+        pre {line-height: 15px; font-family: monospace; background-color: #fafafa; overflow:auto; min-width:100px;
+                box-shadow: 0 0 10px 0 #DDD inset; padding:10px; border:solid 1px #DDD; color:#777; white-space: pre-wrap;}
+        pre b, pre strong { color:#333;}
+	    code * { white-space: pre-wrap;}
+        label { min-width: 85px; display: inline-block; text-align: right;}
+
+	    #icons { margin: 0; padding: 0; }
+	    #icons li { margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left; list-style: none; }
+	    #icons span.ui-icon { float: left; margin: 0 4px; }
+
+        #refs { position:absolute; bottom:5px; left:5px; height:1em; color:white; line-height:1em; padding:.2em; width:10em; opacity:.5; overflow:hidden;
+                border-radius:5px; background:black; transition: all 0.5s; box-shadow: 0 0 10px 0 #333; }
+        #refs:hover {width: 30em; opacity:1; height:5em;}
+        #refs .content {display: flex; justify-content: space-between; flex-wrap: wrap; }
+        #refs .content a { width:50%; display:inline-block; }
+    </style>
+</head>
+<body>
+    <header id="header-rib"></header>
+    <div id="pnlSearch" style="display:none;">
+        <span class="nowrap"><span>Nome :</span><input type="text" /></span>
+        <span class="nowrap"><span>Grupo :</span><input type="text" /></span>
+        <input type="button" value="Pesquisar" style="float:right;" />
+    </div>
+    <div id="conteudo">
+        <h1>Controles da nova interface '2021'</h1>
+        
+        <p>Esta página tem como objetivo demonstrar rapidamente os controles e estilos do novo leiaute das aplicações.</p>
+
+        <h1>Conceitos básicos e estilos</h1>
+
+        <div class="bloco" id="estrMinima">
+            <div class="header"><h2>Estrutura mínima do html</h2></div>
+            <div class="conteudo">
+                <pre><code class="language-markup">
+&lt;!doctype html&gt; &lt;!-- HTML5 doctype --&gt;
+&lt;html lang='pt-br'&gt;
+    &lt;head&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="<b>IE=Edge</b>" /&gt; &lt;!-- Impede que o I.E. use o modo de compatibilidade --&gt;
+        &lt;meta charset="UTF-8"&gt; &lt;!-- forçar o encoding UTF-8 para funcionar corretamente a acentuação da linguagem 'pt-br'--&gt;
+	    &lt;title&gt;Example Page&lt;/title&gt;
+        &lt;script src="<b>./script/rib-controles-min.js</b>"&gt;&lt;/script&gt;
+        &lt;link href="<b>./css/style.css</b>"rel="stylesheet" /&gt;
+        &lt;link href="./fontawesome-5.15.3/css/all.css" rel="stylesheet"&gt; &lt;!-- Para incorporar ícones --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header id="<b>ID_DO_HEADER_DA_PAGINA</b>"&gt;&lt;/header&gt; &lt;!-- bloco onde será encapsulado o controle $rib.header()--&gt;
+        &lt;div id="<b>ID_DO_PAINEL DE PESQUISA</b>"&gt;&lt;/div&gt; &lt;!-- bloco opcional de pesquisa --&gt;
+
+        &lt;div <b>id="conteudo"</b>&gt; 
+            &lt;!-- BLOCO ONDE O CONTEÚDO DA PAGINA SERÁ COLOCADO (OBRIGATÓRIO O ID="CONTEUDO")--&gt;
+        &lt;/div&gt;
+                     
+        &lt;div id="<b>rib-loading</b>" class="fundo"> &lt;!-- exibir a tela de loading ao carregar a pagina -->
+            &lt;span class="ico-spinner">&lt;/span>
+        &lt;/div>
+    &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="bloco" id="botoes">
+            <div class="header"><h2>.button</h2></div>
+            <div class="conteudo">
+                <p>O estilo para botões de ação podem ser aplicados aos seguintes objetos html:
+                    <i>&lt;a&gt;, &lt;div&gt;, &lt;span&gt;, &lt;input&gt;, &lt;button&gt;</i>
+                </p>
+                <p><strong>EXEMPLOS:</strong></p>
+                    <pre><code class="language-markup">
+    <b>&lt;div class="button"</b> onclick="yesSir();"&gt;Ok&lt;/div&gt;
+    <b>&lt;a class="button"</b> href="#" onclick="yesSir();"&gt;Ok&lt;/a&gt;
+    <b>&lt;span class="button"</b> onclick="yesSir();"&gt;Ok&lt;/span&gt;
+    <b>&lt;button</b> type="button" onclick="yesSir();"&gt;Ok&lt;/button&gt;
+    <b>&lt;input</b> type="button" onclick="yesSir();"&gt;Ok&lt;/input&gt;
+                    </code></pre>
+                <div style="text-align:center;">
+                    <div class="button" onclick="yesSir();">Botão &lt;div&gt;</div>
+                    <a class="button" onclick="yesSir();">Botão &lt;a&gt;</a>
+                    <span class="button" onclick="yesSir();">Botão &lt;span&gt;</span>
+                    <button type="button" onclick="yesSir();">Botão &lt;button&gt;</button>
+                    <input type="button" onclick="yesSir();" value="Botão &lt;input&gt;" />
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="ctrl_slider" class="bloco">
+            <div class="header"><h2>Slider</h2></div>
+            <div class="conteudo">
+                <p>Controle deslizante nativo no HTML5 (<i>&lt;input type="range /></i>)</p>
+                <p><strong>EXEMPLO:</strong></p>
+                <pre>
+    &lt;input type="range" style="width:250px" /><i>&lt;!-- IMPUT NATIVO DO HTML5 --></i>
+                </pre>
+                <input type="range" style="width:250px" />
+            </div>
+        </div>
+
+        <div class="bloco" id="blocos">
+            <div class="header"><h2>.bloco</h2></div>
+            <div class="conteudo">
+                <p><label><b>Descrição :</b></label> Insere no conteudo da página um painel que pode ser de cor cinza ou branco conforme exemplo abaixo:</p>
+                <pre><code class="language-markup">
+    <i>&lt;!-- Estrutura mínima do bloco --&gt;</i>
+    &lt;div <b>class="bloco"</b>&gt; 
+        &lt;div class="header g-arrow-dn"&gt;Bloco normal (cor cinza)&lt;/div&gt;  <i>&lt;!-- header do bloco é opcional e sub-classe 'g-arrow-dn' também--&gt;</i>
+        <b>&lt;div class="conteudo"&gt;</b>
+            Conteudo do bloco cinza
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="bloco <b>branco</b>"&gt; <i>&lt;!-- para o bloco basta adicionar a sub-classe "branco" à classe bloco --&gt;</i>
+        &lt;div class="conteudo" style="text-align:center;" &gt;
+            &lt;p&gt;Conteudo do bloco&lt;/p&gt;
+            &lt;input type="button" value="Ok" /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                </code></pre>
+                <div class="bloco">
+                    <div class="header">Bloco normal (cor cinza)</div>
+                    <div class="conteudo">
+                        Conteudo do bloco cinza
+                    </div>
+                </div>
+                <div class="bloco">
+                    <div class="conteudo" style="text-align:center;">
+                        <p>Conteudo do bloco</p>
+                        <input type="button" value="Ok" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bloco_bubles" class="bloco">
+            <div class="header"><h2>.bubble</h2></div>
+            <div class="conteudo">
+                <p><label><strong>Descrição :</strong></label>Cria uma bolha para que seja colocada uma informação em destaque (exempo: um contator de resultados). Aplica-se à elementos <i>span, div, a</i></p>
+                <p><label><strong>EXEMPLO:</strong></label></p>
+                <div class="bloco cinza" style="width:50%;margin:auto;">
+                    <div class="header">Cliente : José Alves Farias Filho <span class="bubble">2 itens</span></div>
+                    <div class="conteudo">
+                        <i>Contratos Ativos</i><span class="bubble">34</span><br />
+                        <i>Contratos em Atraso</i><span class="bubble">8</span><br />
+                        <i>Maior atraso</i><span class="bubble">167 dias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bloco_icons" class="bloco">
+            <div class="header"><h2>Font Awesome</h2></div>
+            <div class="conteudo">
+                <p>Insere ícones em qualquer conte&uacute;do na pagina. <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free" target="_blank">ver mais exemplos</a></p>
+                <p>Incluir no Header da página a seguinte TAG:</p>
+                <pre>
+                    &lt;link href="/biblioteca/fontawesome-5.15.3/css/all.css" rel="stylesheet"&gt;
+                </pre>
+                <p><label><strong>EXEMPLO:</strong></label></p>
+                <pre><code class="language-markup">
+    &lt;div class="button">&lt;span class="fas fa-save">&lt;/span> Salvar&lt;/div>
+    &lt;div class="button">&lt;span class="fas fa-paperclip">&lt;/span> Anexar arquivo&lt;/div>
+    &lt;div class="button">&lt;span class="fas fa-recycle">&lt;/span> Remover&lt;/div>
+    &lt;div class="button">&lt;span class="fas fa-undo-alt">&lt;/span> Voltar&lt;/div>
+                    </code></pre>
+                <div class="button"><span class="fas fa-save"></span> Salvar</div>
+                <div class="button"><span class="fas fa-paperclip"></span> Anexar arquivo</div>
+                <div class="button"><span class="fas fa-recycle"></span> Remover</div>
+                <div class="button"><span class="fas fa-undo-alt"></span> Voltar</div>
+            </div>
+        </div>
+
+        <div id="tables" class="bloco">
+            <div class="header"><h2>.table e &lt;table></h2></div>
+            <div class="conteudo">
+                <p><label><strong>Descrição :</strong></label> Formatação de tabelas em conjunto com a classe .table</p>
+                <style type="text/css">
+                    #tblFuncionarions td:nth-child(1) { width:70px; text-align:center;}
+                    #tblFuncionarions td:nth-child(3) { width:150px; }
+                </style>
+                <table id="tblFuncionarions" class="table">
+                    <caption>Tabela usando o elemento &lt;table></caption>
+                    <thead><tr> <td>ID</td><td>Nome</td> <td>Documento</td> </tr></thead>
+                    <tbody>
+                        <tr><td>1845-56</td><td>Juciley Silvério</td> <td>183.382.517-98</td> </tr>
+                        <tr><td>0576-95</td><td>Clodoaldo Ramirez</td><td>338.660.848-54</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="cl_nowrap" class="bloco">
+            <div class="header"><h2>.nowrap</h2></div>
+            <div class="conteudo">
+                <p><label><strong>Descrição :</strong></label> Usado para que um <i>&lt;label&gt;</i> mantenha-se sempre próximo ao controle (<i>&lt;input&gt;</i>) ao redimensionar a tela:</p>
+                <p><label><strong>EXEMPLO:</strong></label> Redimensione a pagina para identificar o efeito</p>
+                <pre><code class="language-markup">
+    &lt;div class="bloco"&gt;
+        &lt;div class="conteudo"&gt;
+            &lt;div&gt;
+                &lt;span class="<b>nowrap</b>"&gt;&lt;label&gt;Nome:&lt;/label&gt; &lt;input type="text" /&gt;&lt;/span&gt;
+                &lt;span class="<b>nowrap</b>"&gt;&lt;label&gt;Documento:&lt;/label&gt; &lt;input type="text" /&gt;&lt;/span&gt;
+                &lt;span class="<b>nowrap</b>"&gt;&lt;label&gt;Endereço:&lt;/label&gt; &lt;input type="text" /&gt;&lt;/span&gt;
+                &lt;span class="<b>nowrap</b>"&gt;&lt;label&gt;CEP:&lt;/label&gt; &lt;input type="text" /&gt;&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;span class="<b>nowrap top</b>"&gt;&lt;label&gt;Nome:&lt;/label&gt; &lt;input type="text" /&gt;&lt;/span&gt;
+                &lt;span class="<b>nowrap top</b>"&gt;&lt;label&gt;Documento:&lt;/label&gt; &lt;input type="text" /&gt;&lt;/span&gt;
+                &lt;span class="<b>nowrap top</b>"&gt;&lt;label&gt;Endereço:&lt;/label&gt; &lt;input type="text" /&gt;&lt;/span&gt;
+                &lt;span class="<b>nowrap top</b>"&gt;&lt;label&gt;CEP:&lt;/label&gt; &lt;input type="text" /&gt;&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+                     </code></pre>
+                <div class="bloco">
+                    <div class="conteudo">
+                        <div>
+                            <span class="nowrap"><label>Nome:</label> <input type="text" /></span>
+                            <span class="nowrap"><label>Documento:</label> <input type="text" /></span>
+                            <span class="nowrap"><label>Endereço:</label> <input type="text" /></span>
+                            <span class="nowrap"><label>CEP:</label> <input type="text" /></span>
+                        </div>
+                        <div style="margin-top:20px;display:flex; justify-content:center;">
+                            <span class="nowrap top"><label>Nome</label> <input type="text" /></span>
+                            <span class="nowrap top"><label>Documento</label> <input type="text" /></span>
+                            <span class="nowrap top"><label>Endereço</label> <input type="text" /></span>
+                            <span class="nowrap top"><label>CEP</label> <input type="text" /></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="class_error" class="bloco">
+            <div class="header"><h2>.error</h2></div>
+            <div class="conteudo">
+                <p>Usado para indicar que um campo está com erro ou é requerido!</p>
+                <p><strong>EXEMPLO</strong></p>
+                <div>
+                    <script>
+                        
+                        function validar()
+                        {
+                            new RibCpfCnpj("#txtDoc")
+
+                            var ctrl = [];
+                            document.querySelectorAll('input[required]')
+                                .forEach(function(el){
+                                    el.classList.remove('error');
+                                    if (el.value.length == 0 || el.title.length != 0) //verifica se não foi preenchido com está com erro</i>
+                                    {
+                                        el.classList.add('error'); //adiciona a classe error</i>
+                                        ctrl.push(document.querySelector('label[for="' + el.id + '"]').innerText); //localiza o label do controle e adiciona no array</i>
+                                    }
+                                });
+                            if (ctrl.length)
+                                new RibMessageBox('Favor preencher o seguintes campos:&lt;br/&gt;' + ctrl.join(', '));
+                            else
+                                new RibMessageBox('Os campos requeridos foram preenchidos!');
+
+                        }
+                    </script>
+                    <span class="nowrap"><label for="txtNome">Nome</label>: <input type="text" id="txtNome" required /></span>
+                    <span class="nowrap"><label for="txtDoc">Documento</label>: <input type="text" id="txtDoc" required /></span><br />
+                    <span class="nowrap"><label for="txtRua">Rua</label>: <input type="text" id="txtRua" /></span>
+                    <span class="nowrap"><label for="txtCep">CEP</label>: <input type="text" id="txtCep" /></span>
+                    <div class="button" onclick="validar();" style="float:right;">Testar msgBox</div>
+                </div>
+            </div>
+        </div>
+
+        <h1>Componentes Rib</h1>
+
+        <div id="bloco_Header" class="bloco">
+            <div class="header"><h2>Header</h2></div>
+            <div class="conteudo">
+                <p>Assinatura: <strong>$rib.header( <i>id, params</i>)</strong></p>
+                <p>Parametros: <strong>id <i>(ID do objeto)</i></strong></p> <strong>params <i>(JSON object)</i></strong></p>
+                <pre><code class="language-javascript">
+        {
+            title        : Titulo da pagina
+            user         : User name
+            confidential : true  (default) <i>//Mensagem 'Sistema contém informações confidênciais'</i>
+            logo         : false (default) <i>//Exibir ou não o logo com a estrela da Mercedes-Benz</i>
+        }</code></pre>
+                <p>Metodos: <strong>addMenuOption(opts)</strong> (opts = JSON object)<br/></p>
+                <p><strong>EXEMPLO</strong> (este exemplo está sendo usado no header desta pagina)</p>
+                <pre><code class="language-javascript">
+$rib.ready(<b>function</b>()
+{
+    <i>//Objeto com todos os itens do menu a serem adicionados (e que podem ser trazidos do code-behind)</i>
+    var <b>menu</b> = {
+                'style-deflt': { action: 'changeCss();'       , icon: 'fas fa-buy-n-large' },
+                'style-blue' : { action: 'changeCss("blue");' , icon: 'fas fa-old-republic' },
+                'style-red'  : { action: 'changeCss("red");'  , icon: 'fas fa-jedi' },
+                'style-green': { action: 'changeCss("green");' },
+                'style-gold' : { action: 'changeCss("gold");' },
+                'Aprovar'    : { options: { 'Conforme proposta': {
+
+                        options: {  'Opt 1': { icon: 'fas fa-trophy'    },
+                                                    'Opt 2': { icon: 'fas fa-star-half-alt' },
+                                                    'Opt 3': { icon: 'far fa-star' }	}
+                                },
+                                            'Com alterações'   : { icon: 'fas fa-user-astronaut' },
+                                            'Com restrições'   : { icon: 'fas fa-buy-n-large' } 
+                                        }
+                            },
+                'Provisionar/Postergar Pagamento de Boleto': { action: 'changeStatus("disabled");' }
+            };
+
+    <i>//Instancia o RibHeader e em seguida adiciona a lista de menus</i>
+    <b>$rib.header("header-rib",</b>{ title: 'Titulo da Aplicação', user : 'Nome do Usuário' }<b>).addMenuOption</b>(menu);
+}</code></pre>
+            </div>
+        </div>
+
+        <div id="bloco_pesquisa" class="bloco">
+            <div class="header"><h2>Painel de Pesquisa</h2></div>
+            <div class="conteudo">
+                <p><label>Assinatura :</label><strong>new RibSearchPanel(id, parametros)</strong> Transforma o objeto em um painel de pesquisa (deve ser colocado abaixo do header)</p>
+                <p><label>Parametros :</label></p>
+                <pre><code class="language-javascript">
+    (defaults) =    {
+                        onEnter     : function() {}, // Executar função ao pressionar a tecla "Enter"
+                        onEscape    : function() {}  // Executar uma função ao pressionar a tecla "ESC"
+                    }</code></pre>
+                <p><label><strong>EXEMPLO:</strong></label></p>
+                <div style="text-align:center;">
+                    <script>
+                        function searchPanel()
+                        {
+                            var pnl = document.getElementById('pnlSearch');
+                            if(pnl.style.display === 'none'){
+                                new RibSearchPanel('pnlSearch', { onEnter: pesq, onEscape: limpar });
+                                pnl.style.display = '';
+                            }
+                        }
+
+                        function limpar() { document.querySelectorAll('#pnlSearch input[type="text"]').forEach(function(e) { e.value = ''; }) } //limpar todos os inputs do painel de pesquisa
+                        function pesq() { new RibMessageBox("Pesquisa realizada com sucesso!"); } //executa a pesquisa!
+                    </script>
+                    <input type="button" onclick="searchPanel()" value="Criar Painel de Pesquisa" />
+                </div>
+            </div>
+        </div>
+
+        <div id="bloco_msgBox" class="bloco">
+            <div class="header"><h2>Message Box / Dialog Box</h2></div>
+            <div class="conteudo">
+                <h3>Parametros DEFAULT (JSON)</h3>
+                <p>Além dos parametros individuais para cada um dos itens, existe a parametrização default aplicada a todos os componentes</p>
+                <pre><code class="language-javascript">
+    (defaults) =    {
+                        title   : 'Atenção',
+                        message : 'mensagem padrão',
+                        css     : { 
+                                    width   : '400px',
+                                    height  : '200px'
+                                  },
+                        buttons : {
+                                    Ok: { action : function() {} , icon : 'fas fa-check'  }
+                                  },
+                        onEscape: function() { }
+                    }</code></pre>
+                <div id="msgBox" class="bloco">
+                    <div class="header"><h2>MessageBox</h2></div>
+                    <div class="conteudo">
+                        <p><label>Assinatura :</label> <strong>new RibMessageBox(<i>mensagem, params</i>)</strong></p>
+                        <p><label>Parametros :</label> <strong>mensagem</strong>: Mensagem a ser exibida.</p>
+                        <p><label>&nbsp;</label> <strong>params <i>(JSON object)</i></strong>: Ver parametros DEFAULT</p>
+                        <p><strong>EXEMPLO</strong></p>
+                        <div style="text-align:center"><div class="button" onclick="yesSir();">Testar msgBox</div></div>
+                    </div>
+                </div>
+                <div id="dialogBox" class="bloco">
+                    <div class="header"><h2>Dialog Box</h2></div>
+                        <div class="conteudo">
+                        <p><label>Assinatura :</label> <strong>new RibDialog(<i>titulo, mensagem, funct_sim, funct_nao, params</i>)</strong></p>
+                        <p><label>Parametros :</label> <strong><label>titulo:</label></strong> informar o título do dialog box.</p>
+                        <p><label>&nbsp;</label> <strong><label>mensagem:</label></strong> Mensagem a ser exibida no corpo do dialogbox.</p>
+                        <p><label>&nbsp;</label> <strong><label>funct_sim:</label></strong> função a ser executada em caso de confirmação.</p>
+                        <p><label>&nbsp;</label> <strong><label>funct_nao:</label></strong> função a ser executada caso não seja cancelada ação.</p>
+                        <p><label>&nbsp;</label> <strong><label>params:</label></strong> Ver parametros DEFAULT.</p>
+                        <p><strong>EXEMPLO:</strong></p>
+                        <div style="text-align:center"><div class="button" onclick="confirmar();">Testar Dialog</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalPopup" class="bloco">
+            <div class="header"><h2>Modal Popup</h2></div>
+            <div class="conteudo">
+                <p><label>Assinatura :</label> <strong>new RibModalDialog(<i>object, params</i>)</strong> (<b>object</b>: Pode ser um seletor.)</p>
+                <p style="color:red;"><label>OBS :</label> Inserir os popups do tipo modal sempre depois da &lt;div id="#conteudo"> para evitar problemas de exibição</p>
+                <p><label>Metodos :</label> <strong><label>hide(obj):</label></strong> Esconde a modal informada no parametro <b>obj</b></p>
+                <p><label>&nbsp;</label> <strong><label>show(obj):</label></strong> Exibe a modal informada no parametro <b>obj</b></p>
+                <p><label>Padrões :</label></p>
+                <pre><code class="language-javascript">
+    (default) = {   title : '' ,
+                  buttons : {     Ok : { icon : 'fas fa-check' } } ,
+                  onEscape: function() {}, // executa uma função alternativa ao pressionar a tecla 'ESC'
+                      css : {  width : 80% ,
+                              height : 80% } 
+                }</code></pre>
+                <p><strong>EXEMPLO:</strong></p>
+                <div style="text-align:center;"><div class="button" onclick="new RibModalDialog('testeModal').show();">Exibir Modal</div></div>
+            </div>
+        </div>
+
+        <div id="expand_panels" class="bloco">
+            <div class="header"><h2 >Expand Panels</h2></div>
+            <div class="conteudo">
+                <p><label>Assinatura :</label> <strong>new RibExpandPanel(object, visible)</strong><i>// usar visible = false caso deseje que o painel seja carregado com seu conteúdo escondido</i></p>
+                <p><label>Obs:</label> <strong>Deve ser usado somente em elementos do tipo '.bloco' e estes, devem sempre conter um header</strong></p>
+                <p>Parametros: <strong>params <i>(JSON object)</i></strong> 
+                <p><strong>EXEMPLO :</strong></p>
+                <script>$rib.ready(function () { document.querySelectorAll('#expand_panels .bloco').forEach(function(el){new RibExpandPanel(el, false)})  })</script>
+                <div class="bloco cinza" style="max-width:50%; min-width:320px; margin:auto;">
+                    <div class="header">Cliente : José Alves Farias Filho <b><span class="bubble">3 itens</span></b></div>
+                    <div class="conteudo">
+                        <i>Contratos Ativos</i><b><span class="bubble">34</span></b><br />
+                        <i>Contratos em Atraso</i><b><span class="bubble">8</span></b><br />
+                        <i>Maior atraso</i><b><span class="bubble">167 dias</span></b>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+
+        <div id="bloco_date-picker" class="bloco">
+            <div class="header"><h2>DatePicker</h2></div>
+            <div class="conteudo" >
+                <p><label>Assinatura :</label> <strong>$rib.RibDatePicker(object)</strong> (<b>object</b>: Pode ser um seletor.)</p>
+                <p><label><strong>EXEMPLO:</strong></label></p>
+                <div>
+                    <span class="nowrap">teste de posicionamento <label>Data de Nascimento :</label> 
+                    <input type="text" id="txtData"/></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="bloco_cpfcnpj" class="bloco">
+            <div class="header"><h2>CPF/CNPJ CEP e Email</h2></div>
+            <div class="conteudo">
+                <p><label>Assinaturas :</label> <strong>$rib.cpfcnpj(object)</strong> (<b>object</b>: Pode ser um seletor.)</p>
+                <p><label></label>              <strong>new RibInputCep(object)</strong> (<b>object</b>: Pode ser um seletor.)</p>
+                <p><label></label>              <strong>new RibInputEmail(object)</strong> (<b>object</b>: Pode ser um seletor.)</p>
+                <p><label>Parametros :</label> <strong>value :</strong> Define ou recupera o valor informado no campo sem a formatação de cpf ou cnpj</p>
+                <p><label><strong>EXEMPLO:</strong></label></p>
+                <div style="text-align:center;">
+                    <script>
+                        $rib.ready(function () {
+                            new RibCpfCnpj("#txtDocumento"); 
+                         });
+                        function showResult() { new RibMessageBox('O documento informado é ' + new RibCpfCnpj("#txtDocumento").value()); }
+                    </script>
+                    <span class="nowrap"><label>Documento:</label> <input type="text" id="txtDocumento" value="43401733000140" /></span>
+                    <input type="button" value="Ver Documento" onclick="showResult()" />
+                </div>
+            </div>
+        </div>
+
+        <div id="bloco_moeda" class="bloco">
+            <div class="header"><h2>Moeda / Decimal</h2></div>
+            <div class="conteudo">
+                <p><label>Assinatura :</label> <strong>new RibInputDecimal(object, params)</strong> (<b>object</b>: Pode ser um seletor.)</p>
+                <p><label>Parametros :</label> <label>(JSON) :</label> { <b>value</b> : <i>null</i> , <b>precision</b> : <i>2</i> , <b>maxValue</b> : 0 , <b>minValue</b> : 0 } <i>valores padrões</i></p>
+                <p><label>&nbsp;</label> <label><strong>value :</strong></label> Define ou recupera o valor informado no campo sem a formatação</p>
+                <p><label>&nbsp;</label> <label><strong>precision :</strong></label> Numero de casas decimais desejado </p>
+                <p><label>&nbsp;</label> <label><strong>maxValue :</strong></label> Efetua validação de valor MÁXIMO permitido.</p>
+                <p><label>&nbsp;</label> <label><strong>minValue :</strong></label> Efetua validação de valor MÍNIMO permitido.</p>
+                <p><label><strong>EXEMPLO:</strong></label></p>
+                <div style="text-align:center;">
+                    <script>
+                        $rib.ready(function () { new RibInputDecimal("#txtValor", { precision: 5 ,value: 75.01}); });
+                        function showval() { new RibMessageBox('O valor informado é ' + new RibInputDecimal('#txtValor').value()); }
+                    </script>
+                    <span class="nowrap"><label>Total :</label> <input type="text" id="txtValor" /></span>
+                    <input type="button" value="Consultar" onclick="showval()" />
+                </div>
+            </div>
+        </div>
+
+        <div id="bloco_MASK" class="bloco">
+            <div class="header"><h2>Máscaras (cpf, cnpj, decimal, cep)</h2></div>
+            <div class="conteudo">
+                <p><label>Assinatura :</label> <strong>new RibMask(id).tipo(valor)</strong></p>
+                <p><label>Parametros :</label> <label>Tipo :</label> Informar o tipo de mascara a ser aplicada ('cpf', 'cnpj', 'document', 'decimal', 'cep')</p>
+                <p><label>&nbsp;</label> <label><strong>valor :</strong></label> Valor que receberá a mascara</p>
+                <p><label><strong>EXEMPLO:</strong></label></p>
+                <div style="text-align:center;">
+                    <script>
+                        function runMask()
+                        {
+                            var mask = (document.getElementById("btnMask").innerText == "mask");
+
+                            document.querySelectorAll("#tblMask tbody tr").forEach(function (el, i)
+                            {
+                                
+                                var tipo = el.querySelector("td:first-child").innerText;
+                                var value = el.querySelector("td:nth-child(2)");
+                                var res = el.querySelector("td:nth-child(3)");
+
+                                var precision = (tipo == "decimal" ? 5 : null);
+
+                                if(tipo === 'decimal')
+                                    res.innerText = mask ? new RibMask().decimal(value.innerText, precision) : new RibUnmask().decimal(res.innerText, precision);
+                                else if(tipo === 'cpf')
+                                    res.innerText = mask ? new RibMask().cpf(value.innerText) : new RibUnmask().cpf(res.innerText);
+                                else if(tipo === 'cnpj')
+                                    res.innerText = mask ? new RibMask().cnpj(value.innerText) : new RibUnmask().cnpj(res.innerText);
+                                else if(tipo === 'cep')
+                                    res.innerText = mask ? new RibMask().cep(value.innerText) : new RibUnmask().cep(res.innerText);
+
+                            });
+
+                            document.getElementById("btnMask").innerText = (mask ? "unmask" : "mask");
+                        }
+                    </script>
+                    <table class="table" id="tblMask">
+                        <thead>
+                            <tr><td>Tipo</td><td>Valor</td><td>Resultado</td><td><div id="btnMask" class="button" onclick="runMask();">mask</div></td></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>cpf</td>    <td>81410497470     </td><td></td><td></td></tr>
+                            <tr><td>cnpj</td>   <td>71400113000122  </td><td></td><td></td></tr>
+                            <tr><td>decimal</td><td>11285.456       </td><td></td><td></td></tr>
+                            <tr><td>cep</td><td>01234567       </td><td></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="bloco_AJAX" class="bloco">
+            <div class="header"><h2 >Chamadas AJAX</h2></div>
+            <div class="conteudo">
+                <p><label>Assinaturas :</label> new RibPOST(url, parametros) Retorna uma promise com o resultado (then) ou falha (catch)</p>
+                <p><label></label> new RibGET(url, parametros) Retorna uma promise com o resultado (then) ou falha (catch)</p>
+                <p><label></label> new RibDownload(parametros) Retorna um arquivo</p>
+                <p><label>Parametros :</label><label><b>url :</b></label> Nome da pagina que estamos chamando (ex. 'page.aspx').</p>
+                <p><label></label><label><b>parametros :</b></label> (opcional) Informar a lista de parametros do método que estamos chamando (no formato JSON)</p>
+                <p><label></label><label></label><label><b>showLoading :</b></label>  default => true. Exibir ou não a animação de loading</p>
+                <p><label></label><label></label><label><b>message :</b></label>  Caso showLoading = true, exibe uma mensagem em conjunto. </p>
+                <p><label></label><label></label><label><b>async :</b></label> default => true. Não usar false!!!!! (DEPRECATED) </p>
+                <p><label></label><label></label><label><b>contentType:</b></label> default => 'application/json; charset=utf-8'</p>
+                <p><label></label><label></label><label><b>response:</b></label> default => 'json'. Informar o tipo de retorno</p>
+            </div>
+        </div>
+        <div id="bloco_Loading" class="bloco">
+            <div class="header"><h2>Loading Panel</h2></div>
+            <div class="conteudo">
+                <p><strong>$rib.loading()</strong> Exibe uma tela indicando que a página está em processamento.</p>
+                <p><label></label><label><b>mensagem :</b></label> (opcional) Exibir uma mensagem junto com a animação de loading</p>
+                <p><strong>OBS.: Todas as chamadas AJAX já exibem automaticamente a tela de loading.</strong> </p>
+                <p><label><strong>EXEMPLO:</strong></label></p>
+                <div style="text-align:center;">
+                    <script>
+                        function processar()
+                        {
+                            $rib.loading(true, 'Testando');
+                            setTimeout(function () { $rib.loading(false); }, 2500);
+                        }
+                    </script>
+                    <input type="button" onclick="processar()" value="Simular Processamento" />
+                </div>
+            </div>
+        </div>
+
+        <h1>Componentes incorporados (Selectr / DataTables)</h1>
+ 
+        <div id="bloco_comboBox" class="bloco">
+            <div class="header"><h2>Combo Box (Selectr)</h2></div>
+            <div class="conteudo">
+                <p><label>Assinatura :</label> <strong>new Selectr(obj) ou $rib.Selectr(seletor)</strong> Instancia um objeto do tipo select com o estilo combobox</p>
+                <p>ver mais detalhes no componente <a href="https://github.com/Mobius1/Selectr/wiki">aqui</a></p>
+                <p><label><strong>EXEMPLO:</strong></label></p>
+                <div style="text-align:center;">
+                    <script>$rib.ready(function () { new Selectr("#ddlTratamento", { width: '100px' }); });</script>
+                    <span>
+                        <label>Tratamento:</label>
+                        <select id="ddlTratamento" >
+                            <option value="1">Senhor (Sr.)</option>
+                            <option value="2">Senhora (Sra.)</option>
+                            <option value="3">Senhorita (Srta.)</option>
+                            <option value="4">Jovem</option>
+                            <option value="5">Você</option>
+                            <option value="6">Vossa senhoria</option>
+                            <option value="7">Doutor (Dr.)</option>
+                        </select>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="bloco">
+            <div class="header"><h2>DataTable</h2></div>
+            <div class="conteudo">
+                <table id="testetabela" class="cell-border stripe hover"></table>
+            </div>
+        </div>
+        <script>
+            $rib.ready(function() {
+                var data = {
+                    headings: ['Data/Hora', 'Contrato', 'Cliente', 'Produto', 'E-mail', 'Status','Teste'],
+                    data: [
+                            ['18/02/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Alice','Alice','Alice','Alice','Alice','Alice'], 
+                            ['01/01/2016','Bruno','Bruno','Bruno','Bruno','Bruno','Bruno'], 
+                            ['01/01/2016','Antonio','Antonio','Antonio','Antonio','Antonio','Antonio'], 
+                            ['12/01/2016','Eduardo','Eduardo','Eduardo','Eduardo','Eduardo','Eduardo'], 
+                            ['04/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Maria','Maria','Maria','Maria','Maria','Maria'], 
+                            ['01/10/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['25/01/2016','Fernando','Fernando','Fernando','Fernando','Fernando','Fernando'], 
+                            ['01/02/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/09/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['27/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['16/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['08/07/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/12/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['05/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/12/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['25/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['12/09/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['07/07/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/06/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                            ['01/01/2016','Manuel','Manuel','Manuel','Manuel','Manuel','Manuel'], 
+                        ]
+                }
+
+                new DataTable(document.getElementById('testetabela'), {data: data});
+            })
+        </script>        
+
+    </div>
+    <div id="refs">
+        <div><span class="fas fa-book"></span> Referências</div>
+        <div class="content">
+            <a href="http://www.w3schools.com">W3C</a>
+            <a href="http://www.w3schools.com/jquery/jquery_ref_selectors.asp">W3C - seletores</a>
+            <a href="https://icomoon.io">ICO Moon</a>
+            <a href="https://github.com/Mobius1/Selectr/wiki">Selectr</a>
+            <a href="http://www.w3schools.com/cssref/default.asp">W3C - CSS</a>
+            <a href="https://github.com/Mobius1/Vanilla-DataTables/wiki">Vanilla-DataTables</a>
+        </div>
+    </div>
+
+    <div id="testeModal" style="display:none;">
+        <ul class="table">
+            <li class="table-header"><span class="table-cell">Id</span><span class="table-cell">Nome</span><span class="table-cell">Endereço</span></li>
+            <li class="table-row"><span class="table-cell">Id</span><span class="table-cell">Nome</span><span class="table-cell">Endereço</span></li>
+        </ul>
+    </div>
+    <script>
+        function buscar()
+        {
+            document.querySelector("#tblRes tbody tr").remove();
+            var params = [{ cliente   : 'Antonio Clodoaldo Silva' , documento : '308.985.158-07', idade : 58 },
+                          { cliente   : 'Antonia Gimenez'         , documento : '123.456.789-93', idade : 42 },
+                          { cliente   : 'Antonia Souza Lemos'     , documento : '308.985.158-67', idade : 18 },
+                          { cliente   : 'Antonio Clodoaldo Silva' , documento : '308.985.158-28', idade : 34 }]
+
+
+            new RibPOST("pagina.html").send(params)
+                .then(function (ret) {
+                    var itens = params;
+
+                    for (var i = 0; i < itens.length; i++)
+                    {
+                        var linha = document.createElement("tr");
+
+                        for (var key in itens[i])
+                            linha.innerHTML += "<td>" + itens[i][key] + "</td>";
+
+                        document.getElementById("tblRes").appendChild(linha);
+                    }
+
+                })
+                .catch();            
+        }
+    </script>
+</body>
+<script>
+    $rib.ready(function(){
+        //Lista de menus
+        var menu =
+        {
+            'style-deflt': { action: 'changeCss();'       , icon: 'fab fa-buy-n-large' },
+            'style-blue' : { action: 'changeCss("blue");' , icon: 'fab fa-old-republic' },
+            'style-red'  : { action: 'changeCss("red");'  , icon: 'fas fa-jedi' },
+            'style-green': { action: 'changeCss("green");' },
+            'style-gold' : { action: 'changeCss("gold");' },
+            'Aprovar'    : { options: { 'Conforme proposta': {
+
+                    options: {  'Opt 1': { icon: 'fas fa-trophy'    },
+                                                'Opt 2': { icon: 'fas fa-star-half-alt' },
+                                                'Opt 3': { icon: 'far fa-star' }	}
+                            },
+                                        'Com alterações'   : { icon: 'fas fa-user-astronaut' },
+                                        'Com restrições'   : { icon: 'fas fa-buy-n-large' } 
+                                      }
+                           },
+            'Provisionar/Postergar Pagamento de Boleto': { action: 'changeStatus("disabled");' }
+        };
+
+        $rib.header('header-rib', { logo: true, title: "Nova interface '2021'", user: 'Nome do Usuário', confidential : false }).addMenuOption(menu);
+
+        document.querySelectorAll(".bloco").forEach(function (el) { 
+            if (!el.matches('.conteudo .bloco') && !el.matches('#sel'))
+                new RibExpandPanel(el, false)
+        })
+
+        var btn = {
+            buttons: { Cancelar: { css: { float: 'left' } }, Confirmar: { action: function () { confirmar(); }, icon: 'fas fa-checkmark' } },
+            onEscape: function () { new RibMessageBox('Você fechou a janela!') }
+        }
+        var param = Object.assign({}, btn, { title: 'Teste de Modal dialog', css: { width: '50%', height: '40%' } });
+        $rib.modalDialog('testeModal', param);
+
+        $rib.RibDatePicker("#txtData");
+        
+        // Hover states on the static widgets
+        document.querySelectorAll("#dialog-link, #icons li").forEach(function(el){
+            el.addEventListener('hover', function () { this.classList.toggle("ui-state-hover"); })
+        });
+    });
+
+    function changeCss(color)
+    {
+        if (color != null)
+            document.getElementById('pagestyle').setAttribute('href', "/biblioteca/2021/css/style-" + color + ".css");
+        else
+            document.getElementById('pagestyle').setAttribute('href', "/biblioteca/2021/css/style.css");
+    }
+
+    function yesSir() { new RibBaseDialog({ modal: false, title: 'Atenção', message:'Confirmado!', buttons: { 'Yes Sir': { icon : 'fas fa-check'} } }); }
+
+    function confirmar()
+    {
+        new RibDialog('Importante!',
+            'Deseja Continuar com a operação ?',
+            function () {
+                $rib.loading(true);
+                setTimeout(function () { $rib.loading(false); new RibMessageBox("Confirmado!"); }, 1500);
+            },
+            null);
+    }
+</script>
+</html>
