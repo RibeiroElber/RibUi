@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-br">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -34,9 +34,9 @@
         <input type="button" value="Pesquisar" style="float:right;" />
     </div>
     <div id="conteudo">
-        <h1>Controles da nova interface '2021'</h1>
+        <h1>Controles da interface Rib.UI</h1>
         
-        <p>Esta página tem como objetivo demonstrar rapidamente os controles e estilos do novo leiaute das aplicações.</p>
+        <p>Esta página tem como objetivo demonstrar rapidamente os controles e estilos da Interface.</p>
 
         <h1>Conceitos básicos e estilos</h1>
 
@@ -48,7 +48,7 @@
 &lt;html lang='pt-br'&gt;
     &lt;head&gt;
         &lt;meta http-equiv="X-UA-Compatible" content="<b>IE=Edge</b>" /&gt; &lt;!-- Impede que o I.E. use o modo de compatibilidade --&gt;
-        &lt;meta charset="UTF-8"&gt; &lt;!-- forçar o encoding UTF-8 para funcionar corretamente a acentuação da linguagem 'pt-br'--&gt;
+        &lt;meta charset="UTF-8"&gt; &lt;!-- forçar o encoding UTF-8 para funcionar corretamente a acentuação --&gt;
 	    &lt;title&gt;Example Page&lt;/title&gt;
         &lt;script src="<b>./script/rib-controles-min.js</b>"&gt;&lt;/script&gt;
         &lt;link href="<b>./css/style.css</b>"rel="stylesheet" /&gt;
@@ -168,10 +168,10 @@
                 </pre>
                 <p><label><strong>EXEMPLO:</strong></label></p>
                 <pre><code class="language-markup">
-    &lt;div class="button">&lt;span class="fas fa-save">&lt;/span> Salvar&lt;/div>
-    &lt;div class="button">&lt;span class="fas fa-paperclip">&lt;/span> Anexar arquivo&lt;/div>
-    &lt;div class="button">&lt;span class="fas fa-recycle">&lt;/span> Remover&lt;/div>
-    &lt;div class="button">&lt;span class="fas fa-undo-alt">&lt;/span> Voltar&lt;/div>
+                    &lt;div class="button">&lt;span class="fas fa-save">&lt;/span> Salvar&lt;/div>
+                    &lt;div class="button">&lt;span class="fas fa-paperclip">&lt;/span> Anexar arquivo&lt;/div>
+                    &lt;div class="button">&lt;span class="fas fa-recycle">&lt;/span> Remover&lt;/div>
+                    &lt;div class="button">&lt;span class="fas fa-undo-alt">&lt;/span> Voltar&lt;/div>
                     </code></pre>
                 <div class="button"><span class="fas fa-save"></span> Salvar</div>
                 <div class="button"><span class="fas fa-paperclip"></span> Anexar arquivo</div>
@@ -721,7 +721,7 @@ $rib.ready(<b>function</b>()
             'Provisionar/Postergar Pagamento de Boleto': { action: 'changeStatus("disabled");' }
         };
 
-        $rib.header('header-rib', { logo: true, title: "Nova interface '2021'", user: 'Nome do Usuário', confidential : false }).addMenuOption(menu);
+        $rib.header('header-rib', { companyName: 'Rib.UI', logoURL: null, title: "Insert your title Here", user: 'Ribeiro, Elber', subtitle : "Insert your subtitle here" }).addMenuOption(menu);
 
         document.querySelectorAll(".bloco").forEach(function (el) { 
             if (!el.matches('.conteudo .bloco') && !el.matches('#sel'))
@@ -745,10 +745,10 @@ $rib.ready(<b>function</b>()
 
     function changeCss(color)
     {
-        if (color != null)
-            document.getElementById('pagestyle').setAttribute('href', "/biblioteca/2021/css/style-" + color + ".css");
-        else
-            document.getElementById('pagestyle').setAttribute('href', "/biblioteca/2021/css/style.css");
+        // if (color != null)
+        //     document.getElementById('pagestyle').setAttribute('href', "/biblioteca/2021/css/style-" + color + ".css");
+        // else
+        //     document.getElementById('pagestyle').setAttribute('href', "/biblioteca/2021/css/style.css");
     }
 
     function yesSir() { new RibBaseDialog({ modal: false, title: 'Atenção', message:'Confirmado!', buttons: { 'Yes Sir': { icon : 'fas fa-check'} } }); }
