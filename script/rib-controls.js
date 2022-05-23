@@ -254,7 +254,7 @@ var RIB = (function() {
 }());
 
 var RibHeader = (function() {
-    this.defaults = { subtitle: 'Sistema contém informações confidênciais', logo: false, menuIcon: "fas fa-bars", companyName: 'Rib Company' };
+    this.defaults = { subtitle: 'Confidential Information', logoURL: null, menuIcon: "fas fa-bars", companyName: 'Rib.UI' };
     
     function RibHeader(id, params, parentObject){
         var _header = document.getElementById(id)
@@ -264,8 +264,8 @@ var RibHeader = (function() {
 
         params = Object.assign({}, defaults, params);
 
-        if (params.logo)
-            var logo = '<span class="icone"><img src="' + params.logo +'"/></span><span class="texto">'+ params.companyName + '</span>';
+        if (params.logoURL)
+            var logo = '<span class="icone"><img src="' + params.logoURL +'"/></span><span class="texto">'+ params.companyName + '</span>';
         else
             var logo = '<span class="texto-puro">'+ params.companyName + '</span>';
 
