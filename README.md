@@ -1,13 +1,21 @@
 # RibUi
-### Javascript Basic Interface and Components for WebApplications
+### Powerfull and simple Interface for WebApplications
 
-This project is a helper for people like me who needed to modernize and speed up front-end Application pages.
+This project is a helper for people who needs to speed-up developing Single Page Applications without any framework like Angular, Reat, Vue.
+You can easily create complex from simple to complex interfaces with a modern design with this package. 
 
+## Interesting Features:
 
-You can easily create single Page Applications with this components.
++ Header with context Menu Options
++ Modal Dialog / Message Box / Dialog Box
++ Expand Panels
++ Modern DatePicker
++ Loader (with personalized messages)
++ Badges "Bubble"
++ REST Calls (GET and POST)
++ AJAX Download
++ Masked Inputs decimal (specific for pt-BR: CPF, CNPJ, CEP)
++ Combobox (using Selectr.js) (https://github.com/Mobius1/Selectr/wiki)
++ Datatables (using Vanilla-DataTables) (https://github.com/Mobius1/Vanilla-DataTables/wiki)
 
-
-For <select> elements I use [Selectr.js](https://github.com/Mobius1/Selectr/wiki)
-    
-  
-For Datatables, It´s included [Vanilla-DataTables](https://github.com/Mobius1/Vanilla-DataTables/wiki)
+You can learn how to use looking at index.html
