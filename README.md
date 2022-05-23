@@ -20,7 +20,7 @@ You can easily from simple to complex interfaces with a modern design with this 
 + Combobox (using Selectr.js) (https://github.com/Mobius1/Selectr/wiki)
 + Datatables (using Vanilla-DataTables) (https://github.com/Mobius1/Vanilla-DataTables/wiki)
 
-You can learn how to use looking at index.html
+You can learn how to use looking at [index.html](https://ribeiroelber.github.io/RibUi/)
 
 
 ![RibUI image](/ribUI.png "RibUI image")
