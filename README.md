@@ -19,3 +19,6 @@ You can easily create complex from simple to complex interfaces with a modern de
 + Datatables (using Vanilla-DataTables) (https://github.com/Mobius1/Vanilla-DataTables/wiki)
 
 You can learn how to use looking at index.html
+
+
+![RibUI image](/ribUI.png "RibUI image")
