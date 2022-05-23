@@ -1,8 +1,10 @@
 # RibUi (IE11, Chrome and Firefox compatible)
 ### Powerfull and simple Interface for WebApplications
 
-This project is a helper for people who needs to speed-up developing Single Page Applications without any framework like Angular, Reat, Vue.
-You can easily create complex from simple to complex interfaces with a modern design with this package. 
+This project is a helper for people who needs to speed-up developing Single Page Applications without any framework like Angular, React, Vue.
+
+
+You can easily from simple to complex interfaces with a modern design with this package. 
 
 ## Interesting Features:
 
